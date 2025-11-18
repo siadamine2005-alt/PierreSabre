@@ -6,7 +6,6 @@ public class Humain {
 	private int quantiteArgent;
 
 	public Humain(String nom, String boisson, int quantiteArgent) {
-		super();
 		this.nom = nom;
 		this.boisson = boisson;
 		this.quantiteArgent = quantiteArgent;
@@ -20,15 +19,15 @@ public class Humain {
 		return quantiteArgent;
 	}
 
-	private String parler() {
+	protected String parler() {
 		return "(" + nom + ")-";
 	}
 
-	private void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		quantiteArgent += gain;
 	}
 
-	private void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		quantiteArgent -= perte;
 	}
 
