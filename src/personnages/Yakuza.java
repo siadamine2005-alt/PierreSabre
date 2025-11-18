@@ -38,4 +38,10 @@ public class Yakuza extends Humain {
 		reputation++;
 		System.out.println(parler() + "Ce ronin pensait vraiment battre " + getNom() + "du clan de " + clan + ".");
 	}
+	
+	@Override 
+	public void direBonjour() {
+		super.direBonjour();
+		System.out.println(parler() + "Mon clan et celui de " + clan + ".");
+	}
 }
