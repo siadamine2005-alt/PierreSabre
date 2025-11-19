@@ -12,11 +12,11 @@ public class Samourai extends Humain {
 	@Override
 	public void direBonjour() {
 		super.direBonjour();
-		System.out.println(parler() + "Je suis fier de servir le seigneur " + seigneur);
+		parler("Je suis fier de servir le seigneur " + seigneur);
 	}
 
 	public void boire(String boisson) {
-		System.out.println(parler() + " Qu'est-ce que je vais choisir comme boisson ? Tiens je vais prendre du " + boisson + ".");
+		parler(" Qu'est-ce que je vais choisir comme boisson ? Tiens je vais prendre du " + boisson + ".");
 	}
 
 }

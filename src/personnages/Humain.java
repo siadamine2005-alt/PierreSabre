@@ -4,14 +4,18 @@ public class Humain {
 	private String nom;
 	private String boisson;
 	private int quantiteArgent;
-	private int nbConnaissance;
+	protected int nbConnaissance;
 	private static final int NBMAX_CONNAISSANCE = 30;
-	private Humain[] memoire = new Humain[NBMAX_CONNAISSANCE];
+	protected Humain[] memoire = new Humain[NBMAX_CONNAISSANCE];
 
 	public Humain(String nom, String boisson, int quantiteArgent) {
 		this.nom = nom;
 		this.boisson = boisson;
 		this.quantiteArgent = quantiteArgent;
+	}
+
+	public int getNbConnaissance() {
+		return nbConnaissance;
 	}
 
 	public String getNom() {
@@ -22,8 +26,8 @@ public class Humain {
 		return quantiteArgent;
 	}
 
-	protected String parler() {
-		return "(" + nom + ")-";
+	protected void parler(String texte) {
+		System.out.println("(" + nom + ")-" + texte);
 	}
 
 	protected void gagnerArgent(int gain) {
@@ -35,19 +39,19 @@ public class Humain {
 	}
 
 	public void direBonjour() {
-		System.out.println(parler() + "Bonjour ! Je m’appelle  " + nom + " et j’aime boire du " + boisson);
+		parler("Bonjour ! Je m’appelle  " + nom + " et j’aime boire du " + boisson);
 	}
 
 	public void boire() {
-		System.out.println(parler() + "Mmmm, un bon verre de " + boisson + " ! GLOUPS !");
+		parler("Mmmm, un bon verre de " + boisson + " ! GLOUPS !");
 	}
 
 	public void acheter(String bien, int prix) {
 		if (quantiteArgent < prix) {
-			System.out.println(parler() + " Je n'ai plus que " + quantiteArgent
+			parler(" Je n'ai plus que " + quantiteArgent
 					+ " sous en poche. Je ne peux même pas m'offrir " + bien + " à " + prix + " sous");
 		} else {
-			System.out.println(parler() + "J'ai " + quantiteArgent + " sous en poche. Je vais pouvoir m'offrir " + bien
+			parler("J'ai " + quantiteArgent + " sous en poche. Je vais pouvoir m'offrir " + bien
 					+ " à " + prix + " sous");
 			perdreArgent(prix);
 		}
@@ -78,7 +82,7 @@ public class Humain {
 	}
 
 	public void listerConnaissance() {
-		System.out.print(parler() + " Je connais beaucoup de monde dont :");
+		parler(" Je connais beaucoup de monde dont :");
 		for (int i = 0; i < nbConnaissance - 1; i++) {
 			System.out.print(memoire[i].getNom() + ",");
 		}

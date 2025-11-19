@@ -15,33 +15,32 @@ public class Yakuza extends Humain {
 	}
 
 	public void extorquer(Commercant victime) {
-		System.out.println(parler() + "Tiens, tiens, ne serait-ce pas un faible marchand qui passe par là ?");
-		System.out.println(parler() + victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
+		parler("Tiens, tiens, ne serait-ce pas un faible marchand qui passe par là ?");
+		parler(victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
 		int argent = victime.seFaireExtorquer();
 		gagnerArgent(argent);
 		reputation++;
-		System.out.println(parler() + "J’ai piqué les " + argent + " sous de " + victime.getNom() + ", ce qui me fait "
-				+ getQuantiteArgent() + "sous dans ma poche. Hi ! Hi !");
+		parler("J’ai piqué les " + argent + " sous de " + victime.getNom() + ", ce qui me fait " + getQuantiteArgent()
+				+ "sous dans ma poche. Hi ! Hi !");
 	}
 
 	public int perdre() {
 		int argent = getQuantiteArgent();
 		perdreArgent(argent);
 		reputation--;
-		System.out.println(parler() + "J’ai perdu mon duel et mes " + argent
-				+ " sous, snif... J'ai déshonoré le clan de " + clan + ".");
+		parler("J’ai perdu mon duel et mes " + argent + " sous, snif... J'ai déshonoré le clan de " + clan + ".");
 		return argent;
 	}
 
 	public void gagner(int gain) {
 		gagnerArgent(gain);
 		reputation++;
-		System.out.println(parler() + "Ce ronin pensait vraiment battre " + getNom() + "du clan de " + clan + ".");
+		parler("Ce ronin pensait vraiment battre " + getNom() + "du clan de " + clan + ".");
 	}
-	
-	@Override 
+
+	@Override
 	public void direBonjour() {
 		super.direBonjour();
-		System.out.println(parler() + "Mon clan et celui de " + clan + ".");
+		parler("Mon clan et celui de " + clan + ".");
 	}
 }
